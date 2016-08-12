@@ -1,0 +1,18 @@
+close all;
+clear all;
+clc;
+a=0.5;
+alpha=0.08;
+A = imread('lenaTest3.jpg');
+w = imread('cameraman.pgm');
+W=double(w);
+[W_IM,S,Uw,Vw ] = embedding(A,W,a,alpha);
+[ EX_WM ] = extraction(S,W,W_IM ,a,alpha,Uw,Vw);
+[ N_IM ] = addnoise(A,S,W,W_IM ,a,alpha,Uw,Vw);
+ [ Blur_IM ] = blurring(A,S,W,W_IM ,a,alpha,Uw,Vw);
+ [ compress_IM ] = compression(A,S,W,W_IM ,a,alpha,Uw,Vw);
+  [ crop_IM ] = cropping(A,S,W,W_IM ,a,alpha,Uw,Vw );
+  [R_IM1,R_IM2] = Rotation( A,S,W,W_IM ,a,alpha,Uw,Vw );
+  [I] = row_col_blank( A,S,W,W_IM ,a,alpha,Uw,Vw  );
+  [ sharp_IM ] = sharpening( A,S,W,W_IM ,a,alpha,Uw,Vw );
+  [ J] = translation( A, S,W,W_IM ,a,alpha,Uw,Vw);
