@@ -1,0 +1,29 @@
+function [thetaDash,thetaDashU,theta_Z,theta_ZD,theta_COM,theta_COM1,theta_COM2,theta_RM1,theta_RM2,theta_TR,theta_CROP,theta_B] = AngleOfWatermarked(ALLV_D,ALLU_D,ALLV1,ALLV2,ALLV_COM,ALLV_COM1,ALLV_COM2,ALLV_RM1,ALLV_RM2,ALLV_TR,ALLV_CROP,ALLV_B)
+deltaDash = 4;
+thetaDash = zeros(32);
+thetaDashU = zeros(32);
+theta_Z = zeros(32);
+theta_ZD = zeros(32);
+theta_COM = zeros(32);
+theta_COM1 = zeros(32);
+theta_COM2 = zeros(32);
+theta_RM1 = zeros(32);
+theta_RM2 = zeros(32);
+theta_TR = zeros(32);
+theta_CROP = zeros(32);
+theta_B = zeros(32);
+for i=1:1024
+        thetaDashU(i) = atan2(ALLU_D(7,6,i),ALLU_D(6,6,i))/deltaDash;
+        thetaDash(i) = atan2(ALLV_D(7,6,i),ALLV_D(6,6,i))/deltaDash;
+        theta_Z(i) = atan2(ALLV1(7,6,i),ALLV1(6,6,i))/deltaDash;
+        theta_ZD(i) = atan2(ALLV2(7,6,i),ALLV2(6,6,i))/deltaDash;
+        theta_COM(i) = atan2(ALLV_COM(7,6,i),ALLV_COM(6,6,i))/deltaDash;
+        theta_COM1(i) = atan2(ALLV_COM1(7,6,i),ALLV_COM1(6,6,i))/deltaDash;
+        theta_COM2(i) = atan2(ALLV_COM2(7,6,i),ALLV_COM2(6,6,i))/deltaDash;
+        theta_RM1(i) =  atan2(ALLV_RM1(7,6,i),ALLV_RM1(6,6,i))/deltaDash;
+        theta_RM2(i) =  atan2(ALLV_RM2(7,6,i),ALLV_RM2(6,6,i))/deltaDash;
+        theta_TR(i) = atan2(ALLV_TR(7,6,i),ALLV_TR(6,6,i))/deltaDash;
+        theta_CROP(i) = atan2(ALLV_CROP(7,6,i),ALLV_CROP(6,6,i))/deltaDash;
+        theta_B(i) = atan2(ALLV_B(7,6,i),ALLV_B(6,6,i))/deltaDash;
+end
+end
